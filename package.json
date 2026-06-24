@@ -3,7 +3,19 @@
   "displayName": "Universal Runner",
   "description": "Automatically detects and runs any project (C#, Go, Rust, Node, Python, Java, PHP, Ruby, Swift, Kotlin, Dart, Lua, Zig, Julia, Nim, Haskell, Elixir, Scala, OCaml, V, C/C++, TypeScript) inside VS Code.",
   "version": "0.1.0",
-  "publisher": "your-name-here",
+  "publisher": "xAmbiente",
+  "author": {
+    "name": "xAmbiente"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xAmbiente/universal-runner-extension.git"
+  },
+  "homepage": "https://github.com/xAmbiente/universal-runner-extension",
+  "bugs": {
+    "url": "https://github.com/xAmbiente/universal-runner-extension/issues"
+  },
 
   "engines": {
     "vscode": "^1.125.0"
