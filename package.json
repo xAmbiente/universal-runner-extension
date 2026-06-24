@@ -1,0 +1,102 @@
+{
+  "name": "universal-runner",
+  "displayName": "Universal Runner",
+  "description": "Automatically detects and runs any project (C#, Go, Rust, Node, Python, Java, PHP, Ruby, Swift, Kotlin, Dart, Lua, Zig, Julia, Nim, Haskell, Elixir, Scala, OCaml, V, C/C++, TypeScript) inside VS Code.",
+  "version": "0.1.0",
+  "publisher": "your-name-here",
+
+  "engines": {
+    "vscode": "^1.125.0"
+  },
+
+  "categories": [
+    "Other",
+    "Programming Languages"
+  ],
+
+  "keywords": [
+    "runner", "compiler", "build", "automation",
+    "go", "csharp", "cpp", "python", "rust", "java",
+    "ruby", "swift", "kotlin", "dart", "lua", "zig",
+    "julia", "nim", "haskell", "elixir", "scala", "ocaml",
+    "typescript", "php", "vscode-extension"
+  ],
+
+  "activationEvents": [
+    "onStartupFinished",
+    "onCommand:universal-runner.runProject"
+  ],
+
+  "main": "./dist/extension.js",
+
+  "contributes": {
+    "commands": [
+      {
+        "command": "universal-runner.runProject",
+        "title": "Run Project",
+        "category": "Universal Runner"
+      }
+    ],
+
+    "keybindings": [
+      {
+        "command": "universal-runner.runProject",
+        "key": "ctrl+shift+r",
+        "mac": "cmd+shift+r",
+        "when": "editorFocus"
+      }
+    ],
+
+    "menus": {
+      "editor/title": [
+        {
+          "command": "universal-runner.runProject",
+          "group": "navigation"
+        }
+      ]
+    }
+  },
+
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "npm run check-types && npm run lint && node esbuild.js",
+    "watch": "npm-run-all -p watch:*",
+    "watch:esbuild": "node esbuild.js --watch",
+    "watch:tsc": "tsc --noEmit --watch --project tsconfig.json",
+    "package": "npm run check-types && npm run lint && node esbuild.js --production",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "npm run compile-tests && npm run compile && npm run lint",
+    "check-types": "tsc --noEmit",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+
+  "devDependencies": {
+    "@types/vscode": "^1.125.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "24.x",
+
+    "eslint": "^10.5.0",
+    "@typescript-eslint/eslint-plugin": "^8.61.1",
+    "@typescript-eslint/parser": "^8.61.1",
+
+    "esbuild": "^0.28.1",
+    "npm-run-all": "^4.1.5",
+    "typescript": "^6.0.3",
+
+    "@vscode/test-cli": "^0.0.15",
+    "@vscode/test-electron": "^3.0.0"
+  },
+
+  "overrides": {
+    "diff": "^8.0.4",
+    "serialize-javascript": "^7.0.6"
+  },
+
+  "files": [
+    "dist",
+    "package.json",
+    "README.md"
+  ]
+}
